@@ -6,6 +6,10 @@
 <meta name="theme-color" content="#0f0f14">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="I build, run and manage Minecraft servers: setup, plugins, performance, moderation and community.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%8F%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Mr Savage | Minecraft Server Developer">
+<meta property="og:description" content="I help communities build and run Minecraft servers, and I develop Discord bots too.">
+<meta property="og:type" content="website">
 <title>Mr Savage | Minecraft Server Developer</title>
 <style>
 :root{
@@ -63,13 +67,29 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.15;max-wid
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
+.bot{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:36px;margin-top:8px}
+.bot h2{margin-bottom:12px}
+.bot p{color:var(--muted);max-width:52ch}
+.faq{margin-top:32px;border-top:1px solid var(--line);max-width:760px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:22px;transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 40px 22px 0;max-width:62ch}
+.hero>*{animation:rise .6s ease both}
+.hero>*:nth-child(2){animation-delay:.08s}.hero>*:nth-child(3){animation-delay:.16s}.hero>*:nth-child(4){animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+::selection{background:var(--accent);color:var(--accent-ink)}
+.card,.facts div{transition:border-color .2s}
+.card:hover,.facts div:hover{border-color:var(--accent)}
 @media(max-width:720px){
   .links{display:none}
   .hero{padding:64px 0 48px}
   .item{grid-template-columns:1fr}
   .chips{justify-content:flex-start}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.faq summary::after,.card,.facts div{transition:none}.hero>*{animation:none}}
 </style>
 </head>
 <body>
@@ -82,6 +102,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#work">Servers</a>
+        <a href="#bots">Bots</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <a class="btn primary" href="#contact">Get in touch</a>
@@ -156,6 +178,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           </div>
           <div class="chips"><span class="chip">SMP</span><span class="chip">Founder</span><span class="chip">Long running</span></div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="bots">
+    <div class="wrap">
+      <div class="bot">
+        <div>
+          <div class="tag">Discord bots</div>
+          <h2>Need a custom Discord bot?</h2>
+          <p>I also build Discord bots: moderation, tickets, Minecraft linking and more. See my bot work on my developer site.</p>
+        </div>
+        <a class="btn primary" href="https://murkx-portfolio-1ozev0i1y-discord-developer.vercel.app/" target="_blank" rel="noopener">Visit my bot site</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="tag">FAQ</div>
+      <h2>Questions people ask me.</h2>
+      <div class="faq">
+        <details><summary>How do I hire you?</summary><p>Message me on Discord and tell me about your server and what you need help with. I will let you know if I can take it on.</p></details>
+        <details><summary>Do you work for free?</summary><p>I work in return for Discord Nitro, shoutouts, or sometimes a role in your server, depending on the job. We agree on it before I start.</p></details>
+        <details><summary>What do you need from me?</summary><p>A clear idea of what you want, access to the server or panel for the work, and a way to reach you on Discord.</p></details>
+        <details><summary>Which servers can you help with?</summary><p>Java and Bedrock servers, including SMPs, lobby networks and modded setups.</p></details>
+        <details><summary>Can you also make a Discord bot?</summary><p>Yes. I build custom Discord bots for moderation, tickets and Minecraft linking. Check my bot site for examples.</p></details>
+        <details><summary>How fast do you reply?</summary><p>I am very active on Discord and usually reply quickly. Discord is the best way to reach me.</p></details>
       </div>
     </div>
   </section>
