@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f0f14">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="I build, run and manage Minecraft servers: setup, plugins, performance, moderation and community.">
+<title>Mr Savage | Minecraft Server Developer</title>
+<style>
+:root{
+  --bg:#0f0f14; --panel:#16161d; --line:#262632; --text:#ececf1; --muted:#9a9aab; --accent:#6ee7a0; --accent-ink:#06210f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(15,15,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;letter-spacing:.04em}
+.links{display:flex;gap:28px;color:var(--muted);font-size:14px}
+.links a:hover{color:var(--text)}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid var(--line);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost:hover{background:var(--panel)}
+
+/* hero */
+.hero{padding:96px 0 72px}
+.stats{display:flex;gap:28px;color:var(--muted);font-size:14px;margin-bottom:28px}
+.stats b{color:var(--accent);font-size:22px;margin-right:6px}
+h1{font-size:clamp(40px,7vw,76px);line-height:1.04;letter-spacing:-.03em;font-weight:800;max-width:14ch}
+.lead{color:var(--muted);font-size:19px;max-width:56ch;margin:24px 0 36px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.tag{color:var(--accent);font-size:14px;font-weight:600;margin-bottom:10px}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.15;max-width:22ch;margin-bottom:20px}
+.about p{color:var(--muted);max-width:64ch;font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px;max-width:520px}
+.facts div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.facts small{display:block;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:36px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:15px}
+.work{margin-top:36px;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:1fr auto;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--line)}
+.item h3{font-size:22px}
+.item h3 span{display:block;color:var(--muted);font-size:14px;font-weight:500;margin-top:2px}
+.item p{color:var(--muted);max-width:60ch;margin-top:10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-content:flex-start;justify-content:flex-end}
+.chip{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--muted)}
+.contact{text-align:center}
+.contact h2{margin:0 auto 16px}
+.contact p{color:var(--muted);max-width:50ch;margin:0 auto 32px}
+.contact .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:720px){
+  .links{display:none}
+  .hero{padding:64px 0 48px}
+  .item{grid-template-columns:1fr}
+  .chips{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">Mr Savage</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Servers</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn primary" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="stats">
+      <span><b>2-3</b>years running servers</span>
+      <span><b>50+</b>servers helped</span>
+    </div>
+    <h1>Minecraft Server Developer</h1>
+    <p class="lead">I help communities build and run Minecraft servers, from survival SMPs to multi-gamemode networks, and I develop Discord bots to go with them.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See my servers</a>
+      <a class="btn ghost" href="#contact">Work with me</a>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="tag">About</div>
+      <h2>Hi, I'm Mr Savage. I help servers get up and running.</h2>
+      <p>I am a privately contracted Minecraft developer. I help servers with setup, plugins, configuration and day-to-day management, and in return I usually work for Discord Nitro, shoutouts, or sometimes roles in the server. Over the past 2-3 years I have helped more than 50 servers, and I have founded and co-owned several of my own. I also build Discord bots, so I can set up your Minecraft server and your community Discord together.</p>
+      <div class="facts">
+        <div>Love running Minecraft servers<small>Passion</small></div>
+        <div>Committed and very active<small>Reliability</small></div>
+        <div>Discord and bot developer too<small>Extra skill</small></div>
+        <div>Worked with lots of people<small>Experience</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="tag">What I do</div>
+      <h2>Everything it takes to run a server well.</h2>
+      <div class="grid">
+        <div class="card"><h3>Server Setup</h3><p>Choosing hosting, installing Paper or Fabric, port forwarding, worlds, and first-time configuration.</p></div>
+        <div class="card"><h3>Plugins &amp; Mods</h3><p>LuckPerms, EssentialsX, WorldGuard, CoreProtect and custom configs that fit your game mode.</p></div>
+        <div class="card"><h3>Performance</h3><p>Tuning JVM flags, view distance and entities, and reading timings reports to find lag.</p></div>
+        <div class="card"><h3>Discord Bots &amp; Community</h3><p>Custom Discord bots, staff setup, rules and moderation to keep your community active.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="tag">Servers</div>
+      <h2>Servers I have built and managed.</h2>
+      <div class="work">
+        <article class="item">
+          <div>
+            <h3>Emerald Network<span>Founder · Multi-gamemode network</span></h3>
+            <p>A network where players join through a lobby and pick from multiple gamemodes. I founded it and handled the setup and management.</p>
+          </div>
+          <div class="chips"><span class="chip">Lobby</span><span class="chip">Multiple gamemodes</span><span class="chip">Founder</span></div>
+        </article>
+        <article class="item">
+          <div>
+            <h3>Sharplow SMP<span>Co-owner · Community SMP</span></h3>
+            <p>A community SMP for a YouTuber's Discord server, where members can play and talk with each other while having fun.</p>
+          </div>
+          <div class="chips"><span class="chip">SMP</span><span class="chip">Community</span><span class="chip">Co-owner</span></div>
+        </article>
+        <article class="item">
+          <div>
+            <h3>The Grid / Backline SMP<span>Founder · SMP</span></h3>
+            <p>An SMP that has changed names a couple of times but has stayed a good place to build, experiment and work on new ideas.</p>
+          </div>
+          <div class="chips"><span class="chip">SMP</span><span class="chip">Founder</span><span class="chip">Long running</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="tag">Contact</div>
+      <h2>Need help with your Minecraft server?</h2>
+      <p>Tell me about your server and what you need. I work in return for Discord Nitro, shoutouts, or sometimes roles.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://discord.com/users/1347129235898237010">Message me on Discord</a>
+        <a class="btn ghost" href="mailto:contact@mr-savage.aleeas.com">Send an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mr Savage · Minecraft Server Developer</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
