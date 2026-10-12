@@ -67,8 +67,8 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.15;max-wid
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-.bot{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:36px;margin-top:8px}
-.bot h2{margin-bottom:12px}
+.bot{box-shadow:0 0 60px -20px var(--violet);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;background:var(--panel);border:1px solid color-mix(in srgb,var(--violet) 55%,var(--line));border-radius:20px;padding:36px;margin-top:8px}
+.bot h2{margin-bottom:12px;font-size:clamp(28px,4.5vw,44px);max-width:none}
 .bot p{color:var(--muted);max-width:52ch}
 .faq{margin-top:32px;border-top:1px solid var(--line);max-width:760px}
 .faq details{border-bottom:1px solid var(--line)}
@@ -85,6 +85,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .card:hover,.facts div:hover{border-color:var(--accent)}
 
 /* modern layer */
+.bot .btn.big{display:inline-block;padding:16px 32px;font-size:16px;background:linear-gradient(120deg,var(--violet),var(--pink));color:#fff;border:0;opacity:1;visibility:visible}
 .glow{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
 .glow i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.28;animation:drift 22s ease-in-out infinite alternate}
 .glow i:nth-child(1){width:46vw;height:46vw;background:var(--violet);top:-12vw;left:-8vw}
@@ -141,7 +142,7 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#work">Servers</a>
-        <a href="#bots">Bots</a>
+        <a href="#bots" style="color:var(--pink)">Bots</a>
         <a href="#request">Request</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -162,8 +163,22 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
     <div class="cta">
       <a class="btn primary" href="#work">See my servers</a>
       <a class="btn ghost" href="#contact">Work with me</a>
+      <a class="btn ghost" href="#bots">Discord bots</a>
     </div>
   </div>
+
+  <section id="bots">
+    <div class="wrap">
+      <div class="bot">
+        <div>
+          <div class="tag">Discord bots</div>
+          <h2>I build Discord bots too.</h2>
+          <p>Moderation, tickets, Minecraft linking, leveling and more. See my bot work and hire me for one on my Discord developer site.</p>
+        </div>
+        <a class="btn primary big" href="https://discorddev-one.vercel.app/" target="_blank" rel="noopener">Visit my Discord bot site</a>
+      </div>
+    </div>
+  </section>
 
   <section id="about" class="about">
     <div class="wrap">
@@ -222,18 +237,7 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
     </div>
   </section>
 
-  <section id="bots">
-    <div class="wrap">
-      <div class="bot">
-        <div>
-          <div class="tag">Discord bots</div>
-          <h2>Need a custom Discord bot?</h2>
-          <p>I also build Discord bots: moderation, tickets, Minecraft linking and more. See my bot work on my developer site.</p>
-        </div>
-        <a class="btn primary" href="https://murkx-portfolio-1ozev0i1y-discord-developer.vercel.app/" target="_blank" rel="noopener">Visit my bot site</a>
-      </div>
-    </div>
-  </section>
+  
 
   <section id="request">
     <div class="wrap">
@@ -305,7 +309,7 @@ Anything else I should know:</pre>
   function prog(){var h=root.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'}
   addEventListener('scroll',prog,{passive:true});prog();
   // reveal on scroll
-  var els=[].slice.call(d.querySelectorAll('.card,.item,.facts div,.bot,.faq details,.about p,.tpl'));
+  var els=[].slice.call(d.querySelectorAll('.card,.item,.facts div,.faq details,.about p,.tpl'));
   els.forEach(function(e,i){e.classList.add('rv');e.style.transitionDelay=(i%4)*70+'ms'});
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
