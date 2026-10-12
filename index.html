@@ -110,6 +110,11 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
 .item:hover{background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--c) 14%,transparent),transparent 70%)}
 .item h3{transition:color .2s}.item:hover h3{color:var(--c)}
 .chip{border-color:color-mix(in srgb,var(--c) 50%,var(--line));color:var(--c)}
+#request .tag{color:var(--orange)}
+.tpl{margin-top:32px;max-width:760px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:16px;overflow:hidden}
+.tpl pre{margin:0;padding:24px;font:14px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);white-space:pre-wrap;overflow-x:auto}
+.tpl .bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:16px 24px;border-top:1px solid var(--line)}
+.tpl .bar span{color:var(--muted);font-size:14px;flex:1 1 220px}
 .copy{cursor:pointer;font:inherit;font-weight:600;font-size:14px;color:var(--text);background:transparent}
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
 .js .rv.in{opacity:1;transform:none}
@@ -137,6 +142,7 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
         <a href="#skills">Skills</a>
         <a href="#work">Servers</a>
         <a href="#bots">Bots</a>
+        <a href="#request">Request</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
@@ -229,6 +235,31 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
     </div>
   </section>
 
+  <section id="request">
+    <div class="wrap">
+      <div class="tag">Request</div>
+      <h2>Want my help? Send me this.</h2>
+      <p class="lead" style="margin:0;font-size:17px">Copy the template, fill it in, and send it to me on Discord. It tells me everything I need to decide if I can help.</p>
+      <div class="tpl">
+<pre id="tpl">Server name:
+Server type (SMP, lobby/network, modded, other):
+Java or Bedrock:
+Software / version (Paper, Fabric, not sure):
+What do you need help with:
+Plugins or mods you want (if any):
+Discord invite link:
+Deadline (if any):
+What you can offer (Nitro, shoutout, role):
+Anything else I should know:</pre>
+        <div class="bar">
+          <span>Replies usually come through Discord.</span>
+          <button class="btn ghost copy" type="button" data-from="#tpl">Copy template</button>
+          <a class="btn primary" href="https://discord.com/users/1347129235898237010">Open Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <div class="tag">FAQ</div>
@@ -274,7 +305,7 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
   function prog(){var h=root.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'}
   addEventListener('scroll',prog,{passive:true});prog();
   // reveal on scroll
-  var els=[].slice.call(d.querySelectorAll('.card,.item,.facts div,.bot,.faq details,.about p'));
+  var els=[].slice.call(d.querySelectorAll('.card,.item,.facts div,.bot,.faq details,.about p,.tpl'));
   els.forEach(function(e,i){e.classList.add('rv');e.style.transitionDelay=(i%4)*70+'ms'});
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
@@ -290,11 +321,13 @@ h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%)
   var n=d.querySelector('[data-count]');
   if(n&&!rm){var end=+n.dataset.count,t0=null;n.textContent='0';
     (function step(t){t0=t0||t;var p=Math.min((t-t0)/1200,1);n.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)})(performance.now());}
-  // copy discord id
-  var c=d.querySelector('.copy');
-  if(c)c.addEventListener('click',function(){
-    var v=c.dataset.copy,done=function(){var o=c.textContent;c.textContent='Copied!';setTimeout(function(){c.textContent=o},1600)};
-    if(navigator.clipboard)navigator.clipboard.writeText(v).then(done,done);else done();
+  // copy buttons
+  [].forEach.call(d.querySelectorAll('.copy'),function(c){
+    c.addEventListener('click',function(){
+      var v=c.dataset.from?d.querySelector(c.dataset.from).textContent:c.dataset.copy;
+      var done=function(){var o=c.textContent;c.textContent='Copied!';setTimeout(function(){c.textContent=o},1600)};
+      if(navigator.clipboard)navigator.clipboard.writeText(v).then(done,done);else done();
+    });
   });
 })();
 </script>
