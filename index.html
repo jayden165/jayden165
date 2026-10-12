@@ -13,7 +13,7 @@
 <title>Mr Savage | Minecraft Server Developer</title>
 <style>
 :root{
-  --bg:#0f0f14; --panel:#16161d; --line:#262632; --text:#ececf1; --muted:#9a9aab; --accent:#6ee7a0; --accent-ink:#06210f;
+  --bg:#0f0f14; --panel:#16161d; --line:#262632; --text:#ececf1; --muted:#9a9aab; --accent:#6ee7a0; --accent-ink:#06210f; --violet:#8b7bff; --blue:#4cc9f0; --orange:#ffb366; --pink:#ff7eb6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -83,6 +83,38 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 ::selection{background:var(--accent);color:var(--accent-ink)}
 .card,.facts div{transition:border-color .2s}
 .card:hover,.facts div:hover{border-color:var(--accent)}
+
+/* modern layer */
+.glow{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.glow i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.28;animation:drift 22s ease-in-out infinite alternate}
+.glow i:nth-child(1){width:46vw;height:46vw;background:var(--violet);top:-12vw;left:-8vw}
+.glow i:nth-child(2){width:38vw;height:38vw;background:var(--blue);top:30vh;right:-10vw;animation-delay:-8s}
+.glow i:nth-child(3){width:34vw;height:34vw;background:var(--pink);bottom:-14vw;left:25vw;animation-delay:-14s;opacity:.18}
+@keyframes drift{to{transform:translate(6vw,5vh) scale(1.15)}}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:20;background:linear-gradient(90deg,var(--green),var(--blue),var(--violet),var(--pink))}
+h1{background:linear-gradient(100deg,#fff 20%,var(--blue) 55%,var(--violet) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn.primary{background:linear-gradient(120deg,var(--green),var(--blue));border:0;color:#04141a}
+.stats span:nth-child(2) b{color:var(--violet)}
+#about .tag,#contact .tag{color:var(--violet)}#skills .tag{color:var(--blue)}#work .tag{color:var(--orange)}#bots .tag{color:var(--pink)}#faq .tag{color:var(--green)}
+.card,.facts div,.bot,.item{position:relative;--c:var(--green)}
+.card:nth-child(1),.facts div:nth-child(1),.item:nth-of-type(1){--c:var(--green)}
+.card:nth-child(2),.facts div:nth-child(2),.item:nth-of-type(2){--c:var(--blue)}
+.card:nth-child(3),.facts div:nth-child(3),.item:nth-of-type(3){--c:var(--orange)}
+.card:nth-child(4),.facts div:nth-child(4){--c:var(--pink)}
+.bot{--c:var(--violet)}
+.card,.facts div{border-top:3px solid var(--c);background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 22%,transparent),transparent 70%),var(--panel);transition:transform .2s,border-color .2s}
+.card:hover,.facts div:hover{border-color:var(--c);transform:translateY(-4px)}
+.card h3{color:var(--c)}
+.bot{background:radial-gradient(420px circle at var(--mx,80%) var(--my,0%),color-mix(in srgb,var(--c) 28%,transparent),transparent 70%),var(--panel)}
+.item{padding:28px 20px;margin:0 -20px;border-radius:14px;border-bottom-color:transparent;transition:background .2s}
+.item:hover{background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--c) 14%,transparent),transparent 70%)}
+.item h3{transition:color .2s}.item:hover h3{color:var(--c)}
+.chip{border-color:color-mix(in srgb,var(--c) 50%,var(--line));color:var(--c)}
+.copy{cursor:pointer;font:inherit;font-weight:600;font-size:14px;color:var(--text);background:transparent}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.glow i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+
 @media(max-width:720px){
   .links{display:none}
   .hero{padding:64px 0 48px}
@@ -93,6 +125,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </style>
 </head>
 <body>
+<div class="glow" aria-hidden="true"><i></i><i></i><i></i></div>
+<div id="progress"></div>
 
 <header>
   <div class="wrap">
@@ -115,7 +149,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="wrap hero">
     <div class="stats">
       <span><b>2-3</b>years running servers</span>
-      <span><b>50+</b>servers helped</span>
+      <span><b data-count="50">50</b>+servers helped</span>
     </div>
     <h1>Minecraft Server Developer</h1>
     <p class="lead">I help communities build and run Minecraft servers, from survival SMPs to multi-gamemode networks, and I develop Discord bots to go with them.</p>
@@ -218,6 +252,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="cta">
         <a class="btn primary" href="https://discord.com/users/1347129235898237010">Message me on Discord</a>
         <a class="btn ghost" href="mailto:contact@mr-savage.aleeas.com">Send an email</a>
+        <button class="btn ghost copy" type="button" data-copy="1347129235898237010">Copy Discord ID</button>
       </div>
     </div>
   </section>
@@ -230,5 +265,38 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </footer>
 
+<script>
+(function(){
+  var d=document,root=d.documentElement,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  root.classList.add('js');
+  // scroll progress
+  var bar=d.getElementById('progress');
+  function prog(){var h=root.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'}
+  addEventListener('scroll',prog,{passive:true});prog();
+  // reveal on scroll
+  var els=[].slice.call(d.querySelectorAll('.card,.item,.facts div,.bot,.faq details,.about p'));
+  els.forEach(function(e,i){e.classList.add('rv');e.style.transitionDelay=(i%4)*70+'ms'});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+  // mouse spotlight
+  d.addEventListener('pointermove',function(e){
+    var t=e.target.closest&&e.target.closest('.card,.facts div,.bot,.item');
+    if(!t)return;var b=t.getBoundingClientRect();
+    t.style.setProperty('--mx',(e.clientX-b.left)+'px');t.style.setProperty('--my',(e.clientY-b.top)+'px');
+  });
+  // count up
+  var n=d.querySelector('[data-count]');
+  if(n&&!rm){var end=+n.dataset.count,t0=null;n.textContent='0';
+    (function step(t){t0=t0||t;var p=Math.min((t-t0)/1200,1);n.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)})(performance.now());}
+  // copy discord id
+  var c=d.querySelector('.copy');
+  if(c)c.addEventListener('click',function(){
+    var v=c.dataset.copy,done=function(){var o=c.textContent;c.textContent='Copied!';setTimeout(function(){c.textContent=o},1600)};
+    if(navigator.clipboard)navigator.clipboard.writeText(v).then(done,done);else done();
+  });
+})();
+</script>
 </body>
 </html>
